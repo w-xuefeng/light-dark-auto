@@ -4,6 +4,11 @@
 
 A lightweight library for managing light/dark theme switching with automatic system preference detection. It provides both programmatic API and a ready-to-use Web Component.
 
+[![NPM Last Update](https://img.shields.io/npm/last-update/light-dark-auto?style=for-the-badge)](http://npmjs.com/package/light-dark-auto)
+[![NPM Version](https://img.shields.io/npm/v/light-dark-auto?style=for-the-badge)](http://npmjs.com/package/light-dark-auto)
+[![NPM Downloads](https://img.shields.io/npm/dy/light-dark-auto?style=for-the-badge)](http://npmjs.com/package/light-dark-auto)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
 ## 🌟 Features
 
 - 🎯 Automatic detection of system theme preference
@@ -68,6 +73,9 @@ Customize icons with slots:
 The `<theme-switch>` element supports the following attributes:
 
 - `theme` - Set the initial theme. Possible values: `auto` (default), `light`, or `dark`
+- `theme-key` - Set the localStorage key to save theme preference. Default: `theme`
+- `body-theme-attr` - Set the attribute name added to the body element. Default: `theme`
+- `immediate` - Apply theme immediately on component initialization. Default: `true`
 
 ```html
 <!-- Set initial theme to dark -->

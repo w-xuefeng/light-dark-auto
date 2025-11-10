@@ -4,6 +4,11 @@
 
 一个轻量级的库，用于管理明暗主题切换并自动检测系统偏好设置。它提供了编程 API 和即用型 Web 组件。
 
+[![NPM Last Update](https://img.shields.io/npm/last-update/light-dark-auto?style=for-the-badge)](http://npmjs.com/package/light-dark-auto)
+[![NPM Version](https://img.shields.io/npm/v/light-dark-auto?style=for-the-badge)](http://npmjs.com/package/light-dark-auto)
+[![NPM Downloads](https://img.shields.io/npm/dy/light-dark-auto?style=for-the-badge)](http://npmjs.com/package/light-dark-auto)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
 ## 🌟 功能特性
 
 - 🎯 自动检测系统主题偏好
@@ -68,6 +73,9 @@ themeStore.auto();   // 跟随系统偏好
 `<theme-switch>` 元素支持以下属性：
 
 - `theme` - 设置初始主题。可选值：`auto`（默认）、`light` 或 `dark`
+- `theme-key` - 设置用于保存主题偏好的 localStorage 键名。默认值：`theme`
+- `body-theme-attr` - 设置添加到 body 元素的属性名。默认值：`theme`
+- `immediate` - 在组件初始化时立即应用主题。默认值：`true`
 
 ```html
 <!-- 设置初始主题为深色 -->

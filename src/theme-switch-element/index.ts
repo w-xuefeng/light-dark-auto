@@ -77,6 +77,9 @@ export class ThemeSwitch extends HTMLElement {
     const initialTheme = this.getAttribute("theme") as
       | ThemeType
       | undefined;
+    const themeKey = this.getAttribute("theme-key") || "theme";
+    const bodyThemeAttr = this.getAttribute("body-theme-attr") || "theme";
+    const mediate = this.getAttribute("immediate") === "false";
     const lightBtn = this.shadowRoot.querySelector(".light");
     const darkBtn = this.shadowRoot.querySelector(".dark");
     const systemLightBtn = this.shadowRoot.querySelector(".system-light");
@@ -98,7 +101,12 @@ export class ThemeSwitch extends HTMLElement {
         btn?.classList.add("visible");
       }
     };
-    this.themeStore = useTheme(visible, { immediate: true, initialTheme });
+    this.themeStore = useTheme(visible, {
+      immediate: !mediate,
+      initialTheme,
+      themeKey,
+      bodyThemeAttr,
+    });
     lightBtn?.addEventListener("click", this.themeStore.dark);
     darkBtn?.addEventListener("click", this.themeStore.auto);
     systemLightBtn?.addEventListener("click", this.themeStore.light);

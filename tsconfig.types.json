@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "DOM.AsyncIterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": [
+      "node"
+    ],
+    "declaration": true,
+    "declarationDir": "./lib",
+    "emitDeclarationOnly": true,
+  },
+  "include": [
+    "src/index.ts"
+  ],
+  "exclude": [
+    "rolldown.config.ts",
+  ]
+}

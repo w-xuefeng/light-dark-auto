@@ -1,0 +1,38 @@
+{
+  "name": "light-dark-auto",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.esm.js",
+      "require": "./lib/index.cjs.js",
+      "types": "./lib/index.d.ts"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "README-zh-CN.md"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "load-templates": "bun run scripts/templates-loader.ts",
+    "build": "bun clean && bun load-templates && tsc -b ./tsconfig.types.json && rolldown -c",
+    "prepublishOnly": "bun run build"
+  },
+  "author": "w-xuefeng",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/html-minifier-terser": "^7.0.2",
+    "html-minifier-terser": "^7.2.0",
+    "rimraf": "^6.1.0",
+    "rolldown": "^1.0.0-beta.47"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

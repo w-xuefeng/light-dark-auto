@@ -47,9 +47,7 @@ themeStore.auto();   // Follow system preference
 Include the component in your HTML:
 
 ```html
-<script type="module">
-  import 'light-dark-auto/lib/theme-switch-element/index.esm.js';
-</script>
+<script src="https://cdn.jsdelivr.net/npm/light-dark-auto/lib/index.umd.js"></script>
 
 <theme-switch></theme-switch>
 ```
@@ -63,6 +61,49 @@ Customize icons with slots:
   <div slot="system-light">_AUTO(Light)_</div>
   <div slot="system-dark">_AUTO(Dark)_</div>
 </theme-switch>
+```
+
+#### Web Component Attributes
+
+The `<theme-switch>` element supports the following attributes:
+
+- `theme` - Set the initial theme. Possible values: `auto` (default), `light`, or `dark`
+
+```html
+<!-- Set initial theme to dark -->
+<theme-switch theme="dark"></theme-switch>
+```
+
+#### Web Component Methods
+
+The `<theme-switch>` element provides the following methods for programmatic control:
+
+- `addThemeChangeEventListener(listener)` - Add a listener for theme change events
+- `removeThemeChangeEventListener(listener)` - Remove a previously added listener
+
+Example usage:
+
+```javascript
+const themeSwitch = document.querySelector('theme-switch');
+
+// Add theme change listener
+const listener = (theme, details) => {
+  console.log('Theme changed to:', theme, 'Details:', details);
+};
+themeSwitch.addThemeChangeEventListener(listener);
+
+// Remove theme change listener
+themeSwitch.removeThemeChangeEventListener(listener);
+```
+
+To get or set the current theme programmatically:
+
+```javascript
+// Get current theme
+console.log(themeSwitch.theme); // 'auto', 'light', or 'dark'
+
+// Set theme
+themeSwitch.theme = 'dark'; // or 'light' or 'auto'
 ```
 
 ### ⚙️ Advanced Configuration

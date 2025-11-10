@@ -47,9 +47,7 @@ themeStore.auto();   // 跟随系统偏好
 在 HTML 中引入组件：
 
 ```html
-<script type="module">
-  import 'light-dark-auto/lib/theme-switch-element/index.esm.js';
-</script>
+<script src="https://cdn.jsdelivr.net/npm/light-dark-auto/lib/index.umd.js"></script>
 
 <theme-switch></theme-switch>
 ```
@@ -63,6 +61,49 @@ themeStore.auto();   // 跟随系统偏好
   <div slot="system-light">_自动(浅色)_</div>
   <div slot="system-dark">_自动(深色)_</div>
 </theme-switch>
+```
+
+#### Web 组件属性
+
+`<theme-switch>` 元素支持以下属性：
+
+- `theme` - 设置初始主题。可选值：`auto`（默认）、`light` 或 `dark`
+
+```html
+<!-- 设置初始主题为深色 -->
+<theme-switch theme="dark"></theme-switch>
+```
+
+#### Web 组件方法
+
+`<theme-switch>` 元素提供以下方法用于编程控制：
+
+- `addThemeChangeEventListener(listener)` - 添加主题更改事件监听器
+- `removeThemeChangeEventListener(listener)` - 移除已添加的监听器
+
+使用示例：
+
+```javascript
+const themeSwitch = document.querySelector('theme-switch');
+
+// 添加主题更改监听器
+const listener = (theme, details) => {
+  console.log('主题更改为:', theme, '详情:', details);
+};
+themeSwitch.addThemeChangeEventListener(listener);
+
+// 移除主题更改监听器
+themeSwitch.removeThemeChangeEventListener(listener);
+```
+
+以编程方式获取或设置当前主题：
+
+```javascript
+// 获取当前主题
+console.log(themeSwitch.theme); // 'auto', 'light', 或 'dark'
+
+// 设置主题
+themeSwitch.theme = 'dark'; // 或 'light' 或 'auto'
 ```
 
 ### ⚙️ 高级配置
